@@ -1,23 +1,28 @@
 # **************************************************************************** #
 #                                                           LE - /             #
 #                                                               /              #
-#    StartupScript.sh                                 .::    .:/ .      .::    #
+#    ingress.yaml                                     .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
-#    Created: 2020/01/31 15:35:35 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/31 15:52:17 by frfrey      ###    #+. /#+    ###.fr      #
+#    Created: 2020/01/31 19:16:34 by frfrey       #+#   ##    ##    #+#        #
+#    Updated: 2020/01/31 19:37:06 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
-#!/bin/sh
-
-#Start all service on my docker
-/usr/sbin/php-fpm7
-/usr/sbin/sshd
-/usr/sbin/nginx
-
-while [ true ]
-do true = true
-done
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx
+          servicePort: 80
