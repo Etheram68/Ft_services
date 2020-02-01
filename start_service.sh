@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2020/01/30 15:45:38 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/30 15:55:15 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/02/01 12:17:51 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,6 +24,22 @@ wait () {
 	sleep 2s
 	printf "    \e[0;34m.: Success :.\e[0m\n"
 }
+
+# Ensure minikube is launched
+if ! minikube status >/dev/null 2>&1
+then
+    echo Minikube is not started! Starting now...
+    if ! minikube start --vm-driver=virtualbox \
+        --cpus 3 --disk-size=30000mb --memory=3000mb \
+		--extra-config=apiserver.service-node-port-range=1-32767
+    then
+        echo Cannot start minikube!
+        exit 1
+    fi
+    minikube addons enable metrics-server
+    minikube addons enable ingress
+fi
+
 # docker can run in minikube's vm
 eval $(minikube docker-env);
 #################################### DEPLOYMENT ########################################
