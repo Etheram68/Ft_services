@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2020/01/30 15:45:38 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2020/02/01 17:38:53 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/02/01 17:54:27 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -36,6 +36,9 @@ docker build -t nginx_kube srcs/nginx
 
 printf "Build MYSQL Image\n"
 docker build -t mysql_kube srcs/mysql
+
+printf "Build MYSQL Image\n"
+docker build -t phpmyadmin_kube srcs/phpmyadmin
 
 
 #################################### DEPLOYMENT ########################################
