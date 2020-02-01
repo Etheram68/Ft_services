@@ -6,3 +6,4 @@ resources:
 - nginx-compose.yml
 - mysql-compose.yml
 - ingress-compose.yml
+- phpmyadmin-compose.yml
