@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2020/02/01 13:47:54 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2020/02/01 13:48:31 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/02/01 14:40:11 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -61,4 +61,3 @@ spec:
       containers:
       - name: nginx
         image: kaporal/nginx_ssh_php_alpine:minikube
-        imagePullPolicy: Never
