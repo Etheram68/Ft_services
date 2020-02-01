@@ -1,0 +1,8 @@
+secretGenerator:
+- name: mysql-pass
+  literals:
+  - password=password
+resources:
+- nginx-compose.yml
+- mysql-compose.yml
+- ingress-compose.yml
