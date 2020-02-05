@@ -1,60 +1,13 @@
-###############################################################################
-#                                                                             #
-#                               RESSOURCES                                    #
-#                                                                             #
-###############################################################################
+# FT_SERVICE
 
-https://github.com/helm/charts/tree/master/stable
-
-KUBERNETES CMD
-https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/
-
-YAML
-https://learnxinyminutes.com/docs/fr-fr/yaml-fr/
-
-GRAFANA
-https://github.com/helm/charts/blob/master/stable/grafana/values.yaml
-https://grafana.com/grafana/dashboards
-
-FTPS
-https://doc.ubuntu-fr.org/vsftpd
-https://gist.github.com/yuikns/d4967713693bef2b6423c89ddd3d155d
-
-INFLUX DB
-https://github.com/helm/charts/blob/master/stable/influxdb/values.yaml
-
-INGRESS NGINX
-https://kubernetes.io/fr/docs/concepts/services-networking/ingress/
-https://github.com/helm/charts/blob/master/stable/nginx-ingress/values.yaml
-
-MYSQL
-https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
-
-PHP MY ADMIN / WORDPRESS
-https://github.com/galexrt/workshop-docker/blob/master/kubernetes303/wordpress-mysql
-KEYS SSL (need sudo)
-https://imagineer.in/blog/https-on-localhost-with-nginx/
-
-
-###############################################################################
-#                                                                             #
-#                               AVANT TEST                                    #
-#                                                                             #
-###############################################################################
-
+# AVANT TEST
 
 Install helm / jq / docker / docker-machine / virtualbox / kubectl
 minikube start --cpus=4 --memory 4000 --disk-size 11000 --vm-driver virtualbox --extra-config=apiserver.service-node-port-range=1-35000
 eval $(minikube docker-env)
 
-
-###############################################################################
-#                                                                             #
-#                                  TESTS                                      #
-#                                                                             #
-###############################################################################
-
-
+# TESTS
+```
                          - Nginx en connexion SSH -
 export KUB_IP=$(minikube ip)
 ssh -v root@$KUB_IP -p 32022
@@ -71,3 +24,4 @@ kubectl deletet pods grafana-..
 kubectl exec -i -t --namespace default $(kubectl get pods --namespace default -l app=influxdb -o jsonpath='{.items[0].metadata.name}') /bin/sh
 Logs influxdb :
 kubectl logs -f --namespace default $(kubectl get pods --namespace default -l app=influxdb -o jsonpath='{ .items[0].metadata.name }')
+```

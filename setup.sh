@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2020/01/30 15:45:38 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2020/02/05 17:14:07 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/02/05 17:26:48 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -72,7 +72,7 @@ else
 	helm install -f srcs/influxdb.yml influxdb stable/influxdb
     wait_for_deploy influxdb
 
-    helm install -f srcs/grafana.yaml grafana stable/grafana
+    helm install -f srcs/grafana.yml grafana stable/grafana
     wait_for_deploy grafana
 
 printf "\n\033[31mBuild NGINX Image\033[00m\n\n"
