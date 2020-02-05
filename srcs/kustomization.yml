@@ -3,7 +3,8 @@ secretGenerator:
   literals:
   - password=password
 resources:
-- nginx-compose.yml
-- mysql-compose.yml
-- ingress-compose.yml
-- phpmyadmin-compose.yml
+- nginx-deployment.yml
+- mysql-deployment.yml
+- ingress.yml
+- phpmyadmin-deployment.yml
+- wordpress-deployment.yml
