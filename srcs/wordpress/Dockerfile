@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2020/02/05 13:23:10 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2020/02/05 13:27:40 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/02/05 14:42:52 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -21,7 +21,6 @@ RUN apk update && \
 	apk add nginx mysql-client
 
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
-COPY srcs/wordpress.sql /wordpress.sql
 COPY start /start
 
 COPY srcs/telegraf.tar.gz .

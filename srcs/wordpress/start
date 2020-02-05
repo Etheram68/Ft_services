@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2020/02/05 13:24:01 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2020/02/05 13:24:09 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/02/05 14:32:41 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -36,8 +36,6 @@ then
 	echo Initializing database...
 
 	$MYSQL -e 'CREATE DATABASE wordpress;' ||
-		( $MYSQL -e 'DROP DATABASE wordpress;'; conn_error)
-	$MYSQL wordpress < /wordpress.sql ||
 		( $MYSQL -e 'DROP DATABASE wordpress;'; conn_error)
 fi
 
